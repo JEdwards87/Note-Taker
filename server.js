@@ -25,8 +25,9 @@ app.get("/", function (req, res) { //lookup (req, res) again tonigh
 
 
 app.get("/api/notes", function (req, res) {
-  fs.readFile('db/db.json')
+  fs.readFile('db/db.json', function(data) {
   res.send(data);
+});
 });
 
 app.listen(PORT, function () {
