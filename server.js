@@ -1,35 +1,33 @@
-// Dependencies
-// =============================================================
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
+const express = require("express"); //dependency express
+const path = require("path"); //dependency path
+const fs = require("fs"); //dependency file system
 
-
-// Sets up the Express App
-// =============================================================
-const app = express();
+const app = express(); //Sets up express app
 const PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // Sets up the Express app to handle data parsing
 app.use(express.json());
+app.use(express.static('public'));
 
-app.get("/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "/Develop/public/notes.html"));
-});
-
-app.get("/", function (req, res) { //lookup (req, res) again tonigh
+app.get("/", function (req, res) { // Route to index page
   res.sendFile(path.join(__dirname, "/Develop/public/index.html"));
 });
-
-
-
-app.get("/api/notes", function (req, res) {
-  fs.readFile('db/db.json', function(data) {
-  res.send(data);
+app.get("/notes", function (req, res) { // Route to notes page
+  res.sendFile(path.join(__dirname, "/Develop/public/notes.html"));
 });
+app.get("/api/notes", function (req, res) { // Route to db.json file
+  res.sendFile(path.join(__dirname, "/Develop/db/db.json"));
 });
+// app.post("/api/notes", function (req, res) {
+//   app.post("/api/notes", function (req, res) {
+//     fs.readFile(path.join(__dirname, "db.json"));
+//   });
+// });
 
-app.listen(PORT, function () {
-  console.log("App listening on PORT " + PORT);
-});
+
+
+
+
+
+
+

@@ -1,15 +1,28 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jesse Edwards",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
-    "mysql": "^2.16.0"
-  }
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "inquirer": "^7.0.1",
+    "mysql": "^2.16.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JEdwards87/Note-Taker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JEdwards87/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/JEdwards87/Note-Taker#readme"
 }
