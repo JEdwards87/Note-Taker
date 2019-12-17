@@ -18,11 +18,15 @@ app.get("/notes", function (req, res) { // Route to notes page
 app.get("/api/notes", function (req, res) { // Route to db.json file
   res.sendFile(path.join(__dirname, "/Develop/db/db.json"));
 });
-// app.post("/api/notes", function (req, res) {
-//   app.post("/api/notes", function (req, res) {
-//     fs.readFile(path.join(__dirname, "db.json"));
-//   });
-// });
+app.post("/api/notes", function (req, res) {
+  app.post("/api/notes", function (req, res) {
+    fs.readFile(path.join(__dirname, "db.json"));
+  });
+});
+
+app.listen(PORT, function() { // Starts server to begin listening
+  console.log("App listening on PORT " + PORT);
+});
 
 
 
