@@ -1,5 +1,4 @@
-Live Link:https://dashboard.heroku.com/apps/jesse-note-taker/deploy/github
-https://jedwards87.github.io/note-taker/
+Live Link:https://jesse-note-taker.herokuapp.com/
 
 ![notepic](https://user-images.githubusercontent.com/57024833/71053140-278f0100-2113-11ea-91f7-d80731eeed83.PNG)
 
