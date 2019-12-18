@@ -15,9 +15,9 @@ app.get("/notes", function (req, res) {
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/public/index.html"));
 });
-app.use(express.static('public')); //serve css and html and js in folder named public
+app.use(express.static("public")); //serve css and html and js in folder named public
 app.get("/api/notes", function (req, res) {
-  fs.readFile(path.join(__dirname + '/db/db.json'), 'utf8', function (err, data) {
+  fs.readFile(path.join(__dirname + "/db/db.json"), "utf8", function (err, data) {
     if (err) { //if err end function
       return;
     }
@@ -34,14 +34,14 @@ app.post("/api/notes", function (req, res) {
   let updatedNotes = "";
   noteId++;
   newNote.id = noteId;
-  fs.readFile('db/db.json', 'utf8', function (err, noteString) {
+  fs.readFile("db/db.json", "utf8", function (err, noteString) {
     if (err) {
       return
     }
     const notes = JSON.parse(noteString)
     const noteJoin = [...notes, newNote]
     updatedNotes = JSON.stringify(noteJoin);
-    fs.writeFile('db/db.json', updatedNotes, function (err) {
+    fs.writeFile("db/db.json", updatedNotes, function (err) {
       if (err) {
         console.log(err)
         return
@@ -50,9 +50,9 @@ app.post("/api/notes", function (req, res) {
     });
   });
 })
-app.delete('/api/notes/:id', function (req, res) {
+app.delete("/api/notes/:id", function (req, res) {
   const deleteId = parseInt(req.params.id);
-  fs.readFile('db/db.json', 'utf8', function (err, noteString) {
+  fs.readFile("db/db.json", "utf8", function (err, noteString) {
     if (err) {
       return
     }
@@ -63,7 +63,7 @@ app.delete('/api/notes/:id', function (req, res) {
         noteString = JSON.stringify(notes);
       }
     }
-    fs.writeFile('db/db.json', noteString, function (err) {
+    fs.writeFile("db/db.json", noteString, function (err) {
       if (err) {
         return
       }
